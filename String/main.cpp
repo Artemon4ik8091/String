@@ -1,11 +1,11 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include <cctype>
 using namespace std;
 
 class String
 {
-	int size;	//ðàçìåð ñòðîêè â Áàéòàõ
-	char* str;	//óêàçàòåëü íà ñòðîêó â äèíàìè÷åñêîé ïàìÿòè
+	int size;	//Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÑ‚Ñ€Ð¾ÐºÐ¸ Ð² Ð‘Ð°Ð¹Ñ‚Ð°Ñ…
+	char* str;	//ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° ÑÑ‚Ñ€Ð¾ÐºÑƒ Ð² Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸
 public:
 	int get_size()const
 	{
@@ -37,7 +37,7 @@ public:
 	String(const String& other)
 	{
 		this->size = other.size;
-		//Deep copy (Ãëóáîêîå êîïèðîâàíèå, ïîáèòîâîå êîïèðîâàíèå, ïîáàéòîâîå/ïîýåìåíòíîå êîïèðîâàíèå)
+		//Deep copy (Ð“Ð»ÑƒÐ±Ð¾ÐºÐ¾Ðµ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ, Ð¿Ð¾Ð±Ð¸Ñ‚Ð¾Ð²Ð¾Ðµ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ, Ð¿Ð¾Ð±Ð°Ð¹Ñ‚Ð¾Ð²Ð¾Ðµ/Ð¿Ð¾ÑÐµÐ¼ÐµÐ½Ñ‚Ð½Ð¾Ðµ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ)
 		this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyConstructor:\t" << this << endl;
@@ -54,7 +54,7 @@ public:
 		if (this == &other)return *this;
 		delete[] this->str;
 		this->size = other.size;
-		//CopyAssignment, òàê æå êàê è CopyConstructor âûïîëíÿåò DeepCopy
+		//CopyAssignment, Ñ‚Ð°Ðº Ð¶Ðµ ÐºÐ°Ðº Ð¸ CopyConstructor Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ DeepCopy
 		this->str = new char[size] {};
 		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
 		cout << "CopyAssignment:\t" << this << endl;
@@ -103,7 +103,7 @@ void main()
 {
 	setlocale(LC_ALL, "russian");
 #ifdef NULL_TERMINATED_LINES
-	//ASCII-ñèìâîë ñ êîäîì 0 '\0'
+	//ASCII-ÑÐ¸Ð¼Ð²Ð¾Ð» Ñ ÐºÐ¾Ð´Ð¾Ð¼ 0 '\0'
 //NULL Terminated lines
 //char str[] = { 'H', 'e', 'l', 'l', 'o', 0 };
 	char str[] = "Hello";
@@ -143,7 +143,7 @@ void main()
 	cout << "Str4:\t" << str4 << endl;
 
 	String str5;	//Default constructor
-	str5 = str4;	//Copy assignment (îïåðàòîð ïðèñâàèâàíèÿ)
+	str5 = str4;	//Copy assignment (Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ)
 	cout << str5 << endl;
 
 	int a = 2;
@@ -157,7 +157,7 @@ void main()
 	cout << str3 << endl;
 	cout << "--------------------------------------------------" << endl;
 	String str4;
-	cout << "Ââåäèòå ñëîâî: ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÐ»Ð¾Ð²Ð¾: ";
 	cin >> str4;
 	cout << endl;
 	cout << "Str: " << str4 << endl;
