@@ -1,5 +1,6 @@
 ﻿#include<iostream>
-#include <cctype>
+#include<cctype>
+#include<Windows.h>
 using namespace std;
 
 class String
@@ -91,13 +92,24 @@ std::ostream& operator<<(std::ostream& os, const String& obj)
 }
 std::istream& operator>>(std::istream& is, String& obj)
 {
+	SetConsoleCP(1251);
 	return is >> obj.get_str();
+	SetConsoleCP(866);
+}
+std::istream& getline(std::istream& is, String& obj)
+{
+	SetConsoleCP(1251);
+	is.getline(obj.get_str(), obj.get_size());
+	SetConsoleCP(866);
+	return is;
 }
 
 //#define NULL_TERMINATED_LINES
 //#define DEBUG_ASSERTION_FAILED_1
 //#define DEBUG_ASSERTION_FAILED_2
 //#define CONSTRUCTORS_CHECK
+//#define HOME_WORK
+//#define KEYBOARD_INPUT_CHECK
 
 void main()
 {
@@ -151,6 +163,7 @@ void main()
 	a = b;
 #endif // CONSTRUCTORS_CHECK
 
+#ifdef HOME_WORK
 	String str1 = "Hello";
 	String str2 = "World";
 	String str3 = str1 + " " + str2;
@@ -160,6 +173,7 @@ void main()
 	cout << "Введите слово: ";
 	cin >> str4;
 	cout << endl;
+	getline(cin, str);
 	cout << "Str: " << str4 << endl;
 
 
@@ -183,4 +197,21 @@ void main()
 	}
 	cout << endl;
 	cout << "--------------------------------------------------" << endl;
+#endif // HOME_WORK
+
+#ifdef KEYBOARD_INPUT_CHECK
+	String str;
+	cout << "Введите строку: ";
+	//cin >> str;
+	getline(cin, str);
+	cout << str << endl;
+#endif // KEYBOARD_INPUT_CHECK
+
+	String str1;
+	str1.print();
+	String str2(22);
+	str2.print();
+	String str3 = "Hello";
+	str3.print();
+	String str4();
 }
